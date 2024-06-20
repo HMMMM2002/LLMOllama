@@ -7,5 +7,14 @@ class VectorStore():
         db=Chroma.from_documents(texts,embeddingModel,ids=ids)
         return db
     
-    def search():
-        
+    def search(query,db,k=5):
+        docs=db.similarity_search(query,k)
+        return docs
+    
+    def searchWithCosineScore(query,db,k=5):
+        docs=db.similarity_search_with(query,k)
+        return docs
+    
+    def retriever(db,search_type='similarity',search_kwargs={'k': 4,})
+        retriever=db.as_retriever(search_type,search_kwargs)
+        return retriever
