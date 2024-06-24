@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cee-llm-library"
+version = "0.0.1"
+dependencies = [
+    "ollama",
+    "langchain==0.2.5",
+    "langchain-chroma",
+    "langchain-nomic",
+    "langchain-community",
+    "pypdf"
+]
+authors = [
+  { name="HE MIAO", email="hm767925232@gmail.com" },
+]
+description = "A library consist of llm rag langchain"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Repository = "https://github.com/HMMMM2002/LLMOllama"
+Issues = "https://github.com/HMMMM2002/LLMOllama/issues"

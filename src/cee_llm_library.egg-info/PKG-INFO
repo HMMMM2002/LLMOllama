@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: cee-llm-library
+Version: 0.0.1
+Summary: A library consist of llm rag langchain
+Author-email: HE MIAO <hm767925232@gmail.com>
+Project-URL: Repository, https://github.com/HMMMM2002/LLMOllama
+Project-URL: Issues, https://github.com/HMMMM2002/LLMOllama/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ollama
+Requires-Dist: langchain==0.2.5
+Requires-Dist: langchain-chroma
+Requires-Dist: langchain-nomic
+Requires-Dist: langchain-community
+Requires-Dist: pypdf
+
+# cee_llm_library
+
+This is a package. You can use
+[GitHub-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
