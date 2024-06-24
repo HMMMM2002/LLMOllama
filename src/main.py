@@ -1,6 +1,6 @@
 from LLMModel import OllamaLLM
 from DataUtils import DataUtils
-from VectorStore import VectorStore
+from src.VectorStore import VectorStore
 from langchain.chains import RetrievalQA
 from langchain_nomic.embeddings import NomicEmbeddings
 from langchain_chroma import Chroma
@@ -20,7 +20,7 @@ def main():
 
     print('__________________________')
     
-    query='what does the Introducrion and Eligibility talk about?'
+    query='what does Introducrion and Eligibility talk about?'
     documents=DataUtils.loadDocument(doc)
     chunks=DataUtils.splitDocuments(documents)
     #content=[chunk.page_content for chunk in chunks]

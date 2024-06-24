@@ -12,11 +12,10 @@ class VectorStore():
         return docs
     
     #def searchSimilarity(query,db,k=5):
-        #docs=db.search(query=query,search_type="similarity")#等一下，是不是调用的问题 你来main
+        #docs=db.search(query=query,search_type="similarity")
         #return docs
     
     #https://api.python.langchain.com/en/latest/vectorstores/langchain_chroma.vectorstores.Chroma.html#langchain_chroma.vectorstores.Chroma.search
     #def retriever(db,search_type='similarity',search_kwargs={'k': 4,}):
         #retriever=db.as_retriever(search_type,search_kwargs)
         #return retriever
-    
