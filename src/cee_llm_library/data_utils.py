@@ -5,21 +5,32 @@ from langchain_community.llms import ollama
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import OllamaEmbeddings
+from langchain_community.document_loaders.csv_loader import CSVLoader
+from langchain_community.document_loaders import UnstructuredExcelLoader
+import os
 
 class DataUtils:
     def loadDocument(inputDocument):
-        loader = PyPDFLoader(inputDocument)
+        file_path= inputDocument
+        file_extension= os.path.splitext(file_path)
+        if file_extension == '.pdf':
+            loader = PyPDFLoader(inputDocument)
+        elif file_extension == '.csv':
+            loader = CSVLoader(inputDocument)
+        elif file_extension == '.xlsx':
+            loader = UnstructuredExcelLoader(inputDocument)
         content = loader.load()
         return content
     
     #https://api.python.langchain.com/en/latest/character/langchain_text_splitters.character.RecursiveCharacterTextSplitter.html#langchain-text-splitters-character-recursivecharactertextsplitter
     #https://python.langchain.com/v0.1/docs/modules/data_connection/document_transformers/recursive_text_splitter/
-    def splitDocuments(inputcontent,chunk_size=200,chunk_overlap=50,length_funtion=len,is_separator_regex=False,):
-        #splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size,chunk_overlap=chunk_overlap,length_funtion=length_funtion,is_separator_regex=False,)
-        splitter = RecursiveCharacterTextSplitter()
+    def splitDocuments(inputcontent,chunk_size=200,chunk_overlap=50,):
+        splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size,chunk_overlap=chunk_overlap,)
+        #splitter = RecursiveCharacterTextSplitter()
         docs=splitter.split_documents(inputcontent)
         return docs
-    
+
+
     def embeddingModel(model="nomic-embed-text"):
         embedding_function = OllamaEmbeddings(model=model)
         #NomicEmbeddings(model=model,dimensionality=dimensionality)

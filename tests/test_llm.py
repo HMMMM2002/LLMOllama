@@ -5,13 +5,8 @@ from langchain_community.llms import Ollama
 
 def test_llm():
     modelId="phi3:14b"
-    #embedModelId="nomic-embed-text-v1.5"
-    input="why is the sky blue?"
-    #doc="documents/CR112_Vol 1_ITT.pdf"
     doc="documents/sample_file2.pdf"
-    # model=OllamaLLM(modelId)
-    # prompt=OllamaLLM.generate_prompt(input)
-    #model.chatWithLLM(prompt)
+   
 
     print('__________________________')
     
