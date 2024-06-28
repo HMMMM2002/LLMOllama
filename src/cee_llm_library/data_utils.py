@@ -12,13 +12,21 @@ import os
 class DataUtils:
     def loadDocument(inputDocument):
         file_path= inputDocument
-        file_extension= os.path.splitext(file_path)
+        file_path_and_extension: tuple = os.path.splitext(file_path)
+        file_extension = file_path_and_extension[1]
+        loader= None
+        print("file_extension: found ", file_path_and_extension)
+        
         if file_extension == '.pdf':
             loader = PyPDFLoader(inputDocument)
-        elif file_extension == '.csv':
+        elif file_path_and_extension == '.csv':
             loader = CSVLoader(inputDocument)
         elif file_extension == '.xlsx':
             loader = UnstructuredExcelLoader(inputDocument)
+      
+        if loader is None:
+            raise ValueError(f"Unsupported file extension: {file_extension}")
+        
         content = loader.load()
         return content
     
