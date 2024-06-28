@@ -15,10 +15,17 @@ def test_llm():
     chunks=DataUtils.splitDocuments(documents)
     ##content=[chunk.page_content for chunk in chunks]
     embedding=DataUtils.embeddingModel()
+    
     TestDB=BetekkChromaDB.dataBase("my_collection_1")
+    
+    collection=TestDB.add(
+        documents=chunks, 
+        metadatas=[{"source": "notion"}, {"source": "google-docs"}], # filter on these!
+        ids=["doc1", "doc2"], )
+
     #dbChroma=VectorStore.loadIntoDB(chunks,embedding)
     ##context=dbChroma.search(query,dbChroma)   
-    #context=VectorStore.search(query,dbChroma)
+    context=VectorStore.search(query,dbChroma)
     
     template=OllamaLLM.prompt_teplate(context,query)
     ##retrieverChroma=dbChroma.as_retriever(dbChroma)
