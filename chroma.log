@@ -12,3 +12,16 @@
 [32mINFO[0m:     [28-06-2024 15:19:49] Application startup complete.
 [32mINFO[0m:     [28-06-2024 15:19:49] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
 [32mINFO[0m:     [28-06-2024 15:55:53] 127.0.0.1:36240 - "GET / HTTP/1.1" 404
+[33mWARNING[0m:  [01-07-2024 11:17:13] chroma_server_nofile is set to 65535, but this is less than current soft limit of 1048576. chroma_server_nofile will not be set.
+[32mINFO[0m:     [01-07-2024 11:17:13] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [01-07-2024 11:17:13] Starting component System
+[36mDEBUG[0m:    [01-07-2024 11:17:13] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [01-07-2024 11:17:13] Starting component SqliteDB
+[36mDEBUG[0m:    [01-07-2024 11:17:13] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [01-07-2024 11:17:13] Starting component Posthog
+[36mDEBUG[0m:    [01-07-2024 11:17:13] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [01-07-2024 11:17:13] Starting component SegmentAPI
+[32mINFO[0m:     [01-07-2024 11:17:13] Started server process [[36m82070[0m]
+[32mINFO[0m:     [01-07-2024 11:17:13] Waiting for application startup.
+[32mINFO[0m:     [01-07-2024 11:17:13] Application startup complete.
+[32mINFO[0m:     [01-07-2024 11:17:13] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)

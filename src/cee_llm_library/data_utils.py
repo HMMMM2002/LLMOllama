@@ -7,22 +7,24 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import OllamaEmbeddings
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_community.document_loaders import UnstructuredExcelLoader
+from langchain_core.documents import Document
 import os
 
 class DataUtils:
-    def loadDocument(inputDocument):
-        file_path= inputDocument
+    @classmethod
+    def loadDocument(cls,input_file_path:str) -> list[Document]:
+        file_path= input_file_path
         file_path_and_extension: tuple = os.path.splitext(file_path)
         file_extension = file_path_and_extension[1]
         loader= None
         print("file_extension: found ", file_path_and_extension)
         
         if file_extension == '.pdf':
-            loader = PyPDFLoader(inputDocument)
+            loader = PyPDFLoader(input_file_path)
         elif file_path_and_extension == '.csv':
-            loader = CSVLoader(inputDocument)
+            loader = CSVLoader(input_file_path)
         elif file_extension == '.xlsx':
-            loader = UnstructuredExcelLoader(inputDocument)
+            loader = UnstructuredExcelLoader(input_file_path)
       
         if loader is None:
             raise ValueError(f"Unsupported file extension: {file_extension}")
@@ -32,10 +34,18 @@ class DataUtils:
     
     #https://api.python.langchain.com/en/latest/character/langchain_text_splitters.character.RecursiveCharacterTextSplitter.html#langchain-text-splitters-character-recursivecharactertextsplitter
     #https://python.langchain.com/v0.1/docs/modules/data_connection/document_transformers/recursive_text_splitter/
-    def splitDocuments(inputcontent,chunk_size=200,chunk_overlap=50,):
+    @classmethod
+    def splitDocuments(cls,input_contents: list[Document],chunk_size: int=200,chunk_overlap:int=50):
+        if not isinstance(input_contents, list):
+            raise TypeError("Input must be a list of Documents")
+        
+        for input_content in input_contents:
+                if not isinstance(input_content, Document):
+                    raise TypeError("Input must be a list of Documents")
+                
         splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size,chunk_overlap=chunk_overlap,)
         #splitter = RecursiveCharacterTextSplitter()
-        docs=splitter.split_documents(inputcontent)
+        docs=splitter.split_documents(input_contents)
         return docs
 
 

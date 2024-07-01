@@ -11,7 +11,9 @@ dependencies = [
     "langchain-chroma",
     "langchain-nomic",
     "langchain-community",
-    "pypdf"
+    "pypdf",
+    "hypothesis",
+    "chromadb"
 ]
 authors = [
   { name="HE MIAO", email="hm767925232@gmail.com" },

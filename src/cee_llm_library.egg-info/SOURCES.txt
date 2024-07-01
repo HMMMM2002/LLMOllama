@@ -2,6 +2,7 @@ LICENSE
 README.md
 pyproject.toml
 src/cee_llm_library/__init__.py
+src/cee_llm_library/chroma_db.py
 src/cee_llm_library/data_utils.py
 src/cee_llm_library/llm_model.py
 src/cee_llm_library/main.py
