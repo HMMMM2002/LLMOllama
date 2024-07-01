@@ -4,5 +4,4 @@ langchain-chroma
 langchain-nomic
 langchain-community
 pypdf
-hypothesis
 chromadb
